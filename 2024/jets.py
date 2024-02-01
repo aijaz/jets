@@ -146,7 +146,7 @@ def get_train(train_id):
         "3": "00:A0:50:B6:56:E0",
         "4": "00:A0:50:E0:FB:20"
     }
-    return TrainScanner().get_train(device_identifier=ids[train_id])
+    return TrainScanner().get_train(device_identifier=ids[str_train_id])
 
 
 def scan():

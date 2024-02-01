@@ -1,7 +1,7 @@
 from time import sleep
 from intelino.trainlib import TrainScanner
 
-trains = { "1": None, "2": None, "3": None, "4": None}
+trains = {"1": None, "2": None, "3": None, "4": None}
 
 
 def drive_train_1():
@@ -120,22 +120,38 @@ def turn_off_train_light(train_id):
     train.disconnect()
 
 
+def get_train_1():
+    return get_train(1)
+
+
+def get_train_2():
+    return get_train(2)
+
+
+def get_train_3():
+    return get_train(3)
+
+
+def get_train_4():
+    return get_train(4)
+
+
 def get_train(train_id):
+    str_train_id = str(train_id)
+    if trains[str_train_id] is not None:
+        return trains[str_train_id]
     ids = {
-        "1": "47AD4114-516E-06DE-2423-AA3632C162AE",
-        "2": "0BB12C85-4837-D064-E2BE-D7C00685A30E",
-        "3": "8036FE4C-5BDE-3618-1682-F36E693600CE",
-        "4": "18701831-D35F-3C23-78AE-D5219AD32263"
+        "1": "00:A0:50:38:16:10",
+        "2": "00:A0:50:B6:D8:76",
+        "3": "00:A0:50:B6:56:E0",
+        "4": "00:A0:50:E0:FB:20"
     }
-    if trains[train_id] is not None:
-        return trains[train_id]
-    train = TrainScanner().get_train(device_identifier=ids[train_id])
-    return train
+    return TrainScanner().get_train(device_identifier=ids[train_id])
 
 
 def scan():
-    trains = TrainScanner(timeout=5).get_trains()
-    for train in trains:
+    scanned_trains = TrainScanner(timeout=5).get_trains()
+    for train in scanned_trains:
         print("Name:", train.name)
         print("ID:", train.id)
         print("Is connected:", train.is_connected)
@@ -143,6 +159,7 @@ def scan():
         print("Current speed [cm/s]:", train.speed_cmps)
         print("Next planned turn:", train.next_split_decision)
         print("Distance driven since connection [cm]:", train.distance_cm)
+        train.disconnect()
 
 
 def identify(train_id):
@@ -150,7 +167,8 @@ def identify(train_id):
     train.set_top_led_color(0, 255, 0)
 
 
-if __name__ == "__main__":
-    turn_train_4_light_on()
-    sleep(2)
-    turn_train_4_light_off()
+# if __name__ == "__main__":
+#     # turn_train_1_light_on()
+#     # sleep(2)
+#     # turn_train_1_light_off()
+#     # scan()

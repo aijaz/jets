@@ -1,8 +1,6 @@
 from time import sleep
 from intelino.trainlib import TrainScanner
 
-trains = {"1": None, "2": None, "3": None, "4": None}
-
 
 def drive_train_1():
     drive_train("1")
@@ -95,11 +93,13 @@ def turn_train_4_light_off():
 def drive_train(train_id):
     train = get_train(train_id)
     train.drive_at_speed(30)
+    train.disconnect()
 
 
 def stop_train(train_id):
     train = get_train(train_id)
     train.stop_driving()
+    train.disconnect()
 
 
 def turn_on_train_light(train_id):
@@ -138,8 +138,7 @@ def get_train_4():
 
 def get_train(train_id):
     str_train_id = str(train_id)
-    if trains[str_train_id] is not None:
-        return trains[str_train_id]
+
     ids = {
         "1": "00:A0:50:38:16:10",
         "2": "00:A0:50:B6:D8:76",
@@ -167,8 +166,3 @@ def identify(train_id):
     train.set_top_led_color(0, 255, 0)
 
 
-# if __name__ == "__main__":
-#     # turn_train_1_light_on()
-#     # sleep(2)
-#     # turn_train_1_light_off()
-#     # scan()

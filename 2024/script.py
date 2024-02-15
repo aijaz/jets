@@ -160,7 +160,25 @@ print(f"{your_name} shark! Do do do do do do!")
 print(f"{your_name} shark! Do do do do do do!")
 print(your_name.upper() + " SHARK!")
 
+
+
+# Week 4 2/8
+
+radius = 3
+print(radius)
+pi = 3.14
+area = pi * radius * radius
+print(area)
+radius = 4
+print(radius)
+print(area)
+area = pi * radius * radius
+print(area)
+
+
 # LISTS
+# iterate
+# Iterating over a collection (markers)
 
 # What is a list?
 # Example
@@ -205,6 +223,10 @@ my_list.append('b')
 my_list.insert(0, 'b')
 my_list
 my_list.remove('b')
+my_list
+
+
+my_list[1] = 100
 my_list
 
 

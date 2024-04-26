@@ -233,7 +233,11 @@ my_list
 # Get the length of a list with len
 len(my_list)
 
-# sort a list permanently using the method .sort()
+# ##########################################################
+# Week 5 2/15
+# ##########################################################
+
+# sort a list permanently using the method .sort() - SKIPPED THIS
 
 l2 = [8,6,7,5,3,0,9]
 l2
@@ -249,15 +253,25 @@ l2
 # reverse a list using reverse
 l2.reverse()
 
-# ##########################################################
-# Week 3
-# ##########################################################
+
+# START HERE
 
 # Tuples
 planets = ('Mercury', 'Venus', 'Earth')
 location = (3, 2)
 location.insert(4)
 location[0] = 5
+
+a = 1
+b = 2
+c, d = 3, 4
+print(a)
+print(b)
+print(c)
+print(d)
+a, b = b, a
+print(a)
+print(b)
 
 # Make a list of all lrus, classical and avance
 cars = ['Audi', 'Chevy', 'Dodge', 'Ford', 'Honda', 'Toyota']
@@ -269,6 +283,8 @@ cars = [domestic, foreign]
 print(cars)
 print(cars[0])
 print(cars[0][2])
+
+
 
 # Data Structures
 
@@ -293,7 +309,6 @@ print(sports)
 # fourth most favorite game moves to the top spot. Modify the
 # list accordingly, and print the list.
 
-# Option 1
 sports = ['7 tiles', 'Snowboarding', 'Skiing', 'Soccer']
 temp = sports.pop(0)
 print(sports)
@@ -303,6 +318,8 @@ temp = sports.pop()
 print(sports)
 sports.insert(0, temp)
 print(sports)
+
+# SKIP START
 
 # Option 2
 sports = ['7 tiles', 'Snowboarding', 'Skiing', 'Soccer']
@@ -370,28 +387,33 @@ characters = ['Aang', 'Katara', 'Sokka', 'Toph', 'Zuko', 'Iroh', 'Zhao']
 characters = ['Aang', 'Bumi', 'Kya', 'Tenzin', 'Katara', 'Bumi', 'Kya', 'Tenzin', 'Sokka', 'Toph', 'Lin', 'Suyin', 'Zuko', 'Iroh', 'Zhao']
 
 
+# SKIP END
 
 # Looping through an entire list
 
-things = ['Raindrops', 'Whiskers', 'Kettles', 'Mittens', 'Packages']
-for thing in things:
-      print(f"I like {thing}")
+people = ['Aang', 'Katara', 'Sokka', 'Toph', 'Zuko']
+for person in people:
+      print(f"I like {person}")
 
-things = ['Raindrops', 'Whiskers', 'Kettles', 'Mittens', 'Packages']
-for thing in things:
-      print(f"I like {thing}")
-      print(f"{thing} is good")
+people = ['Aang', 'Katara', 'Sokka', 'Toph', 'Zuko']
+for person in people:
+      print(f"I like {person}")
+      print(f"{person} is good")
 
-print(f"Yay, {thing}")
+print(f"Yay, {person}")
 
-for person in ("Aijaz", "Bob", "Charlie"):
+
+for person in people:
     print(f"Hello, {person}")
+
 print("It's good to meet all of you.")
 
 # Indentation is important
 for person in ("Aijaz", "Bob", "Charlie"):
     print(f"Hello, {person}")
     print("It's good to meet all of you.")
+
+# ended here 2/15/24
 
 # ##########################################################
 # Week 4
@@ -617,6 +639,12 @@ if team == "Bulls":
 else:
     print("They're not as good as the Bulls, NGL")
 
+team = input("What is your favorite NBA team?")
+if team.lower() == "bulls":
+    print("They're my favorite team, too!")
+else:
+    print("They're not as good as the Bulls, NGL")
+
 # Assignment vs Test for equality
 team = 'Bulls'
 team == 'Bulls'
@@ -696,7 +724,7 @@ else:
 
 # Checking multiple conditions
 # Use `or` if you want to check multiple conditions and want to at least one condition to be True
-age = input('How old are you?')
+age = int(input('How old are you?'))
 if age < 13 or age > 19:
     print("You're not a teenager.")
 
@@ -756,12 +784,13 @@ print("Liftoff!")
 
 # Example: Break
 
-current_number = 1
-while True:
+current_number = 10
+while current_number >= 0:
+    if current_number == 3:
+        current_number -= 1
+        continue
     print(current_number)
-    current_number += 1
-    if current_number == 7:
-        break
+    current_number -= 1
 
 print("Done!")
 
@@ -805,9 +834,8 @@ for person in people:
     i += 1
 
 # Since this a common thing to want to do, there's a shortcut to do this in python:
-people = ["Alice", "Bob", "Charlie"]
-for thing in enumerate(people):
-    print(thing)
+for person in enumerate(people):
+    print(person)
 
 people = ["Alice", "Bob", "Charlie"]
 for i, person in enumerate(people):

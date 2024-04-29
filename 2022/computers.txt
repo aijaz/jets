@@ -1,0 +1,34 @@
+P@ssword1
+
+Radi 102
+Ty 103
+Landon 104
+Fred 107
+Wonderful 109
+Julian 112
+Kamron 114
+Dalton 116
+Naomi 118
+
+
+https://aijaz.github.io/mypi22/notes
+https://docs.python.org/3/tutorial/index.html
+
+https://github.com/aijaz/mypi22
+arcadeWordle.py
+images.zip
+all5.txt
+allcommonwords.txt
+
+https://bit.ly/JETSMay
+
+
+
+
+
+
+
+
+
+
+

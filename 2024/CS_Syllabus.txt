@@ -1,0 +1,937 @@
+# CS Syllabus
+
+This class will focus on hands-on projects. We will be using four 
+Intelino Train Kits in this class. We'll split the students into groups 
+of three or four - each using one Train Kit. They will code the trains 
+using Python: https://intelino.com/pages/edu
+
+This is a living document. For the latest version of this document, 
+please visit https://github.com/aijaz/jets/blob/main/2024/syllabus.md
+
+For a detailed lesson plan for the first 7 weeks please visit 
+https://github.com/aijaz/jets/blob/main/2024/script.py
+
+## Week 1
+
+- Intro to Computers and Languages
+- Integers
+- Floats
+- Strings
+- Quotes in Strings
+- Operations on 
+    + Strings
+    + Integers
+- Commands
+    + print
+- Expressions
+- Methods
+    + .upper()
+    + .lower()
+- Functions
+    + len()
+    + input()
+- Intro to creating your own functions
+- Lab:
+    + Drawing a square using arcade
+    + Making your Intelino train start and stop
+    
+## Week 2
+
+- f strings
+- Lists
+- Indexes
+- Starting from 0
+- Negative indexes
+- List methods
+    + append
+    + insert
+    + pop
+    + remove
+    + sort
+    + reverse
+- List functions
+    + len
+    + sorted
+- Lab
+    + Changing the color on your Intelino
+    
+## Week 3
+
+- Tuples
+- Lists of lists
+- Lab
+    + Drawing a grid
+- Designing Data Structures
+- Looping over Lists
+- The concept of an iterable
+
+## Week 4
+
+- List References
+    + The metaphor of the book
+- range() with 1 param, 2 params and 3 params
+- List comprehensions
+- List index ranges with 2 params, 1 param, 0 params, -ve indices
+
+## Week 5
+
+- Conditionals
+- While Loops
+
+## Week 6
+
+- Dictionaries
+
+## Week 7
+
+- Making your own functions
+
+## Week 8
+
+- Classes
+
+
+# Labs/Projects
+
+- ETA estimation
+- Preemptive late train announcements
+- Speed limit enforcement
+ # 345678901234567890123456789012345678901234567890123456789012345678901234567890
+# Anything after a '#' (including the '#') is a comment and is ignored
+
+# Expression: anything that has a 'value'
+
+# This is an integer
+1
+
+# This is a floating point number
+3.14
+
+# This is a string
+"JETS"
+
+# Strings can use double or single quotes,
+'JETS'
+
+# Or even triple quotes.
+"""JETS"""
+
+# Triple quotes are used for strings with multiple lines of text:
+"""This is a string
+that is
+three lines long"""
+
+# The \n represents the new lines (a.k.a. the newline character)
+
+# You can do this
+'This is a string\nthat is\nthree lines long'
+
+# But you can't do this:
+'This is a string
+
+# An operation is something you do to 1 or more expressions
+1 + 2
+
+# + is the operator, and 1 and 2 are the operands
+
+# Some operators even work with string expressions - like '+'
+"JE" + "TS"
+
+# Some operators don't make any sense with string expressions: like '-'
+"JE" - "TS"
+
+# Let's look back at 1 + 2
+1 + 2
+
+# What is this REPL doing?
+# Reading our input (1 + 2)
+# Evaluating our input (The value of 1 + 2 is 3)
+# Printing out the output
+# Looping back to the beginning
+
+# The REPL isn't how we normally use python, but it's a good way to learn
+
+# Turns out you can tell Python to print something:
+print(1)
+print(1 + 2)
+print("JETS")
+print("JE" + "TS")
+
+# print is a function - that's another name for a command
+# It's an instruction to the computer 'do this'
+# Functions are often verbs: print, exit
+# Sometimes we need to give the computer more information
+# 'What, exactly, DO you want me to print?'
+# 'I want you to print the value "JETS"'
+print("JETS")
+print(1)
+print(6 * 2)
+
+# The stuff inside the parentheses is called the argument or the parameter
+# You can have more tha one argument to a function
+print("JETS", "Computer", "Science")
+
+# These two examples are both one single parameter
+print("JETS" + "Computer" + "Science")
+print("JETS" "Computer" "Science")
+
+# What is the value of a print statement?
+print(print("JETS" , "Computer"))
+# (print has the value None - we don't know what this means right now)
+
+# The repl does not always print the value. Sometimes it just executes
+
+# There is another kind of function, but first...
+# We GRAMMAR!
+# Timothy cooked dinner
+# Subject verb   object
+
+# "jets".upper()
+# object    verb    (The implied subject here is the computer)
+
+"jets".upper()
+
+# This is another way to invoke a function ('upper') on a single arg: "jets"
+# This is called object notation
+# This function has a return value.
+
+# [Insert rant about 'upper']
+
+# One would think that 'upper("jets")' would work as well
+upper("jets")
+# One would be wrong
+
+# [Insert rant about the need for a .]
+# Sometimes you use object notation, and sometimes you don't
+len("JETS")
+
+# VARIABLES
+
+radius = 2
+pi = 3.14
+print(radius)
+print(pi)
+
+# Earlier, 'print(JETS)' didn't work. But we can make it work now
+JETS = "JETS"
+print(JETS)
+
+# Coming back to our example,
+area = pi * radius * radius
+print(area)
+
+# Reading values from the user
+name = input("What is your name? ")
+
+# What is the value of input?
+print(input("What is your name? "))
+
+print("Good to meet you,", name)
+
+
+## Week 2
+
+# RECAP
+
+# expressions, strings, functions, methods, variables
+# an expression is anything that can be printed
+1 + 2
+print("JETS")
+print("jets".upper())
+"jets".upper()
+program = "jets"
+print(program.title())
+
+# F strings
+
+print(f"I study at {program}")
+print(f"I study at {program.title()}")
+city = "Broomfield"
+print(f"I study at {program.title()} in {city}")
+
+
+# Examples
+your_name = input("What is your name? ")
+print(f"No one puts {your_name} in a corner.")
+print(f"{your_name} shark! Do do do do do do!")
+print(f"{your_name} shark! Do do do do do do!")
+print(f"{your_name} shark! Do do do do do do!")
+print(your_name.upper() + " SHARK!")
+
+# LISTS
+
+# What is a list?
+# Example
+my_list = [10, 20, 30]
+my_list[1]
+my_list[0]
+# index 0 refers to the first item in the list
+# It’s this way in most computer languages
+# Think of an index as the distance from the first item
+# The index of the last item is the length of the list - 1
+
+# You can also use negative indexes (indices)
+my_list[-1]
+
+# Changing, adding, and removing elements
+my_list.append(5)
+my_list.insert(0, 'a')
+my_list
+my_list.insert(2, 'b')
+my_list
+last = my_list.pop()
+last
+first = my_list.pop(0)
+first
+my_list
+my_list.insert(-1, 40)
+my_list
+my_list.insert(0, 5)
+my_list
+# insert inserts before the index
+my_list[0] = 3 # this changes the value of the first index
+second_last = my_list.pop(-2)
+second_last
+my_list
+my_list.append(1)
+my_list
+my_list.append(2)
+my_list
+my_list.remove('b')
+my_list
+my_list.append('b')
+my_list.insert(0, 'b')
+my_list
+my_list.remove('b')
+my_list
+
+
+# Get the length of a list with len
+len(my_list)
+
+# sort a list permanently using the method .sort()
+
+l2 = [8,6,7,5,3,0,9]
+l2
+l2.sort()
+l2
+
+# Get a sorted copy of the list by using sorted
+l2 = [8,6,7,5,3,0,9]
+l3 = sorted(l2)
+l3
+l2
+
+# reverse a list using reverse
+l2.reverse()
+
+# ##########################################################
+# Week 3
+# ##########################################################
+
+# Tuples
+planets = ('Mercury', 'Venus', 'Earth')
+location = (3, 2)
+location.insert(4)
+location[0] = 5
+
+# Make a list of all lrus, classical and avance
+cars = ['Audi', 'Chevy', 'Dodge', 'Ford', 'Honda', 'Toyota']
+
+# Lists containing lists
+domestic = ['Chevy', 'Dodge', 'Ford']
+foreign = ['Audi', 'Honda', 'Toyota']
+cars = [domestic, foreign]
+print(cars)
+print(cars[0])
+print(cars[0][2])
+
+# Data Structures
+
+# Make a list of your favorite sports in order of preference
+# (most favorite first)
+
+sports = ['Snowboarding', 'Skiing', 'Soccer']
+
+# print the list
+
+print(sports)
+
+# You learn about a new game called “7 tiles” and
+# suddenly it’s your favorite game. Modify the list so that
+# this is new game is now in the first spot, with everything
+# else moving down a spot. Print the list.
+
+sports.insert(0, '7 tiles')
+print(sports)
+
+# After a week, “7 tiles” moves to the second spot and the
+# fourth most favorite game moves to the top spot. Modify the
+# list accordingly, and print the list.
+
+# Option 1
+sports = ['7 tiles', 'Snowboarding', 'Skiing', 'Soccer']
+temp = sports.pop(0)
+print(sports)
+sports.insert(1, temp)
+print(sports)
+temp = sports.pop()
+print(sports)
+sports.insert(0, temp)
+print(sports)
+
+# Option 2
+sports = ['7 tiles', 'Snowboarding', 'Skiing', 'Soccer']
+sports.insert(1, sports.pop(0))
+sports.insert(0, sports.pop())
+print(sports)
+
+# Option 3
+sports = ['7 tiles', 'Snowboarding', 'Skiing', 'Soccer']
+sports.insert(0, sports.pop())
+print(sports)
+
+# After another week, you get bored of “7 tiles” and remove
+# it from your list altogether. Everything else stays the
+# same. Modify the list accordingly, and print the list.
+sports.remove('7 tiles')
+print(sports)
+
+# I’m creating an Avatar Fandom page. I want to keep track
+# of the following information for each character:
+# Name, Nationality, Children, Bending.
+# - Every character will have a name and nationality
+# - We will keep track of the names of the character’s children (if any)
+# - Some characters may not have children
+# - Some characters will have a single bending power
+# - Some characters will have more than one bending power
+# - Some characters may not have any bending powers
+# - Design a data structure for this fandom page
+# - Populate your data structure using the data below
+# - Print the value of your data structure
+# - This is gonna take some thought, so spend some time on this assignment.
+# Name: Aang
+#  Nationality: Southern Air Temple
+#  Children: Bumi, Kya, Tenzin
+#  Bending: Air, Water, Earth, Fire, Energy
+# Name: Katara
+#  Nationality: Southern Water Tribe
+#  Children: Bumi, Kya, Tenzin
+#  Bending: Water, Blood
+# Name: Sokka
+#  Nationality: Southern Water Tribe
+#  Children: None
+#  Bending: None
+# Name: Toph Beifong
+#  Nationality: Gaoling, Earth Kingdom
+#  Children: Lin Beifong, Suyin Beifong
+#  Bending: Earth, Metal
+# Name: Zuko
+#  Nationality: Fire Nation Capital, Fire Nation
+#  Children: Izumi, Kya
+#  Bending: Fire, Energy
+# Name: Iroh
+#  Nationality: Fire Nation Capital, Fire Nation
+#  Children: Lu Ten
+#  Bending: Fire, Energy
+# Name: Zhao
+#  Nationality: Fire Nation Capital, Fire Nation
+#  Children: None
+#  Bending: Fire
+
+# Start with a list of names
+characters = ['Aang', 'Katara', 'Sokka', 'Toph', 'Zuko', 'Iroh', 'Zhao']
+
+# add children
+characters = ['Aang', 'Bumi', 'Kya', 'Tenzin', 'Katara', 'Bumi', 'Kya', 'Tenzin', 'Sokka', 'Toph', 'Lin', 'Suyin', 'Zuko', 'Iroh', 'Zhao']
+
+
+
+# Looping through an entire list
+
+things = ['Raindrops', 'Whiskers', 'Kettles', 'Mittens', 'Packages']
+for thing in things:
+      print(f"I like {thing}")
+
+things = ['Raindrops', 'Whiskers', 'Kettles', 'Mittens', 'Packages']
+for thing in things:
+      print(f"I like {thing}")
+      print(f"{thing} is good")
+
+print(f"Yay, {thing}")
+
+for person in ("Aijaz", "Bob", "Charlie"):
+    print(f"Hello, {person}")
+print("It's good to meet all of you.")
+
+# Indentation is important
+for person in ("Aijaz", "Bob", "Charlie"):
+    print(f"Hello, {person}")
+    print("It's good to meet all of you.")
+
+# ##########################################################
+# Week 4
+# ##########################################################
+
+# RECAP
+
+# expressions, strings, functions, methods, variables
+# an expression is anything that can be printed
+1 + 2
+print("JETS")
+print("jets".upper())
+"jets".upper()
+program = "jets"
+print(program.title())
+
+# F strings
+
+print(f"I study at {program}")
+print(f"I study at {program.title()}")
+city = "Broomfield"
+print(f"I study at {program.title()} in {city}")
+
+
+# Examples
+your_name = input("What is your name? ")
+print(f"Hello, {your_name}. How are you?")
+
+# - Week 2: Lists
+
+my_list = [10, 20, 30]
+my_list.append(5)
+my_list.insert(0, 'a')
+my_list
+my_list.insert(2, 'b')
+my_list
+last = my_list.pop()
+l2 = [8,6,7,5,3,0,9]
+l2
+l2.sort()
+l2
+
+# Get a sorted copy of the list by using sorted
+l2 = [8,6,7,5,3,0,9]
+l3 = sorted(l2)
+l3
+l2
+
+# reverse a list using reverse
+l2.reverse()
+
+# List references
+
+# Week 3: More Lists - Lists containing Lists
+
+# Lists containing lists
+domestic = ['Chevy', 'Dodge', 'Ford']
+foreign = ['Audi', 'Honda', 'Toyota']
+cars = [domestic, foreign]
+print(cars)
+print(cars[0])
+print(cars[0][2])
+
+# LOOPING OVER A LIST (Iterating)
+
+# Looping through an entire list
+
+things = ['Raindrops', 'Whiskers', 'Kettles', 'Mittens', 'Packages']
+for thing in things:
+      print(f"I like {thing}")
+
+# Anything indented is part of the iteration
+# Anyting 'outdented' is not
+things = ['Raindrops', 'Whiskers', 'Kettles', 'Mittens', 'Packages']
+for thing in things:
+      print(f"I like {thing}")
+      print(f"{thing} is good")
+
+print(f"Yay, {thing}")
+
+# Indentation is important
+for person in ("Aijaz", "Bob", "Charlie"):
+    print(f"Hello, {person}")
+
+print("It's good to meet all of you.")
+
+# Common 'simple' bug
+for person in ("Aijaz", "Bob", "Charlie"):
+    print(f"Hello, {person}")
+    print("It's good to meet all of you.")
+
+# Sometimes you need to calculate the value of something inside a loop
+the_sum = 0
+for n in (0, 1, 2, 3):
+    the_sum = the_sum + n
+
+print(f"The sum of the first 4 integers is {the_sum}")
+
+# THIS IS A COMMON PATTERN
+# for n in (0, 1, 2, 3):
+
+the_sum = 0
+for n in range(4):
+    the_sum = the_sum + n
+
+print(f"the sum of the first 3 integers is {the_sum}")
+
+#################################################
+
+s = 0
+n = 4
+for v in range(1, n):
+    s = s + v
+
+print(f"the sum of the first {n - 1} integers is {s}")
+
+#################################################
+
+s = 0
+n = 4
+for v in range(1, n):
+    s += v
+
+print(f"the sum of the first {n - 1} integers is {s}")
+
+# range with 1 parameter
+for n in range(5):
+    print(n)
+
+# range with 1 parameter - starts at 0, stops at parameter - Works well with list indexes
+
+odds = [1, 3, 5, 7, 9]
+for f in range(len(odds)):
+    print(odds[f] + 1)
+
+# range with 3 parameter: increment by parameter 3 instead of 1
+
+for v in range(1, 10, 3):
+      print(v)
+
+# Using range to create lists
+
+l = list(range(1, 10, 3))
+
+# Functions on lists
+# min()
+# max()
+# sum()
+# len()
+
+# LIST COMPREHENSIONS
+# Elegant shorthand for the creation of a new list and a for loop.
+
+entries = [1, 2, 3, 4, 5]
+
+result = []
+for n in entries:
+    result.append(n * 2)
+
+# This is a very common pattern in python
+# Create an empty list (result)
+# Iterate over another list (entries)
+# Operate on each element in the second list (entries) and
+# append the resulting value to the first list (result)
+
+result = [n * 2 for n in entries]
+
+# LIST SLICES
+
+# A slice is like a range for lists
+# A slice returns a NEW list
+
+months =   ['Jan', 'Feb', 'Mar',
+            'Apr', 'May', 'Jun',
+            'Jul', 'Aug', 'Sep',
+            'Oct', 'Nov', 'Dec']
+first_3 = months[0:3]
+first_3
+q2 = months[3:6]
+q2
+
+# Omitting the first parameter implies it's 0
+first_third = months[:4]
+first_third
+
+# Omitting the second parameter implies it's the last index + 1
+last_third = months[8:] # ['Sep', 'Oct', 'Nov', 'Dec']
+last_third
+
+# Omitting both parameter implies indexes 0 and the last index + 1
+year = months[:]
+year
+
+# An index of -1 is the index of the last item
+# An index of -2 is the second-last item, and so on
+p4 = months[-4:-1] # ['Sep', 'Oct', 'Nov']
+p4
+
+# HOMEWORK
+# Create a data structure to represent a planet and it's confirmed number of moons.
+# Create a list of these data structures. You can find the data on
+# [Wikipedia](https://en.wikipedia.org/wiki/Planet#Planetary_attributes)
+# Print the name of each planet along with its number of confirmed moons.
+for pair in moons:
+  print(f"{pair[0]} has {pair[1]} moon(s)")
+
+for planet_name, num_moons in moons:
+  print(f"{planet_name} has {num_moons} moon(s)")
+
+# Print the total number of confirmed moons in the solar system.
+# For each of the the first 4 planets in the solar system, print the planet's name, and it's number of moons. Print the total number of moons for those 4 planets.
+# For each of the the last 3 planets in the solar system, print the planet's name, and it's number of moons. Print the total number of moons for those 3 planets.
+# Use a single Python statement no more than 80 characters long to generate a list of of the reciprocals of the first 1000 positive integers. (Remember: a positive integer is any whole number greater than 0, and the reciprocal of n is 1/n).
+
+# CONDITIONALS
+
+# Programs so far have been boring
+# Programs get interesting when they examine conditions and make decisions based on the value of those conditions.
+# If statements
+team = input("What is your favorite NBA team?")
+if team == "Bulls":
+    print("They're my favorite team, too!")
+else:
+    print("They're not as good as the Bulls, NGL")
+
+# Assignment vs Test for equality
+team = 'Bulls'
+team == 'Bulls'
+team == 'Nuggets'
+
+# Syntactic VS Semantic equality
+team = 'Lakers'
+team == 'Lakers'
+team == 'lakers'
+team.lower()
+team.lower() == 'lakers'
+team = 'LAKERS'
+team.lower() == 'lakers'
+team = 'lAkERs'
+team.lower() == 'lakers'
+team == 'lAkERs'
+
+# Using "bulls" in team.lower()
+
+# Testing for inequality
+team = input("What is your favorite NBA team?")
+if team != "Bulls":
+    print("They're not as good as the Bulls, NGL")
+else:
+    print("They're my favorite team, too!")
+
+# Testing numbers
+x = 1
+x > 0
+y = "1"
+y > 0
+int(y)
+int(y) > 0
+y
+
+age = input('How old are you?')
+age = int(age)
+if age > 17:
+    print('You are an adult')
+else:
+    print("You're still a child.")
+
+# Testing multiple conditions
+age = int(input('How old are you?'))
+if age < 4:
+    print("You're a baby")
+elif age < 11:
+    print("You're a little kid")
+elif age < 13:
+    print("You're a tween")
+elif age < 18:
+    print("You're a teenager")
+elif age < 20:
+    print("You're a teenaged adult")
+else:
+    print("You're an adult")
+
+# no else block
+if age == 16:
+    print("You can start driving now!")
+elif age == 18:
+    print("You can start voting this year!")
+
+
+is_adult = True
+if not is_adult:
+    print("You may not vote")
+else:
+    print("You're old enough to vote")
+
+if is_adult:
+    print("You're old enough to vote")
+else:
+    print("You may not vote")
+
+
+
+# Checking multiple conditions
+# Use `or` if you want to check multiple conditions and want to at least one condition to be True
+age = input('How old are you?')
+if age < 13 or age > 19:
+    print("You're not a teenager.")
+
+# Use `and` if you want to check multiple conditions and want to all conditions to be True
+age = int(input('How old are you?'))
+if age < 20 and age > 17:
+    print("You are a teenaged adult.")
+
+# Everything between the `if` and the `:` is called a Boolean expression
+# A boolean expression can be composed of other Boolean expressions (like we just saw with `or` and `and`)
+# Other boolean tests
+"Feb" in ["Jan", "Feb", "Mar"]
+"Jun" in ["Jan", "Feb", "Mar"]
+"feb" not in ["Jan", "Feb", "Mar"]
+"ear" in "hearing"
+5 >= 4
+
+# Describe the modulo operator (`%`)
+# `5 % 3` has the value of the _remainder_ when you divide 5 by 3 (in this case: 2)
+# if `x % y == 0` it means that `x` is a multiple of `y`
+# this is often used to test if a number is odd or even. If that number % 2 is 0, then it is a multiple if 2. Which makes it even. Otherwise that number % 2 is 1, and that makes it odd.
+# The value of `x % y` is always a number >= 0 and less than `y`
+# Knowing this, now you can also limit which items make it into a comprehension using a comprehension condition:
+squares_of_evens = [x**2 for x in range(1,10) if x%2 == 0]
+
+### Homework
+
+* Continuing with last week's homework on the number of moons each planet has, print the names of the planets that more than 20 moons, as well as the number of moons they have.
+* According to this page (https://en.wikipedia.org/wiki/List_of_landings_on_extraterrestrial_bodies) three other planets in our solar system (Mercury, Venus, and Mars) have human-made machines on their surface. Loop through the list of planets. If a planet has machines on their surface, print its name, along with "Yes." If it doesn't, print it's name, along with "Not yet."
+* Pretend your computer has a name. Ask the user for their name. If the name they enter is the same as the user's name, print "Hey! That's my name, too!". If not, print "That's a nice name." The comparison should be case-insensitive.
+* Store the numbers 1 through 9 in a list. Loop through the list, and print the appropriate number as well as the Elven translation of the number. You can find the Elven translations here: https://tolkiengateway.net/wiki/Quenya_numbers
+* Write a basic customer-support system. Ask the user "How can I help you?" If the user's reply contains the word "donate", then respond: "For donations, please contact Aijaz." If the users's reply contains the word "volunteer", then respond: "For volunteering, please contact Ayesha." If they user's reply contains neither "donate" or "volunteer" then respond with "I'm sorry. I don't understand." As always, the checks should be case-insensitive.
+* Ask the user to input a number from 1 to 8. Print the name of the planet that's that number in the solar system. For example, if the user inputs '3', then print "Earth." If the user enters a number greater than eight, then print "That's too high." If the user enters a number less than one, then print "That's too low."
+
+You may recall I said in class that everything after `in` in a phrase like `for f in ...` is an iterable. This means that it acts like a list. Strings are also iterables.
+
+
+
+# While loops
+
+# Backbone of most software
+
+
+# Also seen this is a range
+for current_number in range(5, -1, -1):
+    print(current_number)
+
+print("Liftoff!")
+
+# Example: Loop variable
+current_number = 10
+while current_number >= 0:
+    print(current_number)
+    current_number -= 1
+
+print("Liftoff!")
+
+# Example: Break
+
+current_number = 1
+while True:
+    print(current_number)
+    current_number += 1
+    if current_number == 7:
+        break
+
+print("Done!")
+
+
+i = 1
+while i < 6:
+   print(i)
+   j = 1
+   while j < 6:
+      if j == 2:
+        break
+      print("**", i, j)
+      j = j + 1
+   i = i + 1
+
+i = 1
+while i < 6:
+   print(i)
+   j = 0
+   while j < 6:
+      j = j + 1
+      if j == 2:
+        continue
+      print("**", i, j)
+   i = i + 1
+
+# If you forget the break statement you'll wind up with an infinite loop. You'll have to hit ctrl-C to stop the program
+
+# Looping over a list
+
+people = ["Alice", "Bob", "Charlie"]
+for person in people:
+    print(person)
+
+# Sometimes we want the index of the item along with the item:
+
+people = ["Alice", "Bob", "Charlie"]
+i = 0
+for person in people:
+    print(f"The person at index {i} is {person}")
+    i += 1
+
+# Since this a common thing to want to do, there's a shortcut to do this in python:
+people = ["Alice", "Bob", "Charlie"]
+for thing in enumerate(people):
+    print(thing)
+
+people = ["Alice", "Bob", "Charlie"]
+for i, person in enumerate(people):
+    print(f"The person at index {i} is {person}")
+
+## Dictionaries
+# Creating dictionaries
+
+d = {}
+
+# Why dictionaries are helpful
+    # Speed
+    # Programmer ease of use
+    # Example: _Avatar_ homework
+# Working with dictionaries
+    # Accessing values
+    # Adding new key-value pairs
+    # Creating empty dictionaries
+    # Modifying values
+    # Removing key-value pairs with `del`
+    # Using get instead of keyed access
+# Looping through dictionaries
+    # `items()`
+    # `keys()`
+    # Looping through keys in a particular order with `sorted()`
+    # `values()`
+# Nesting
+    # Going deeper with the _Avatar_ homework
+    # Could nest dictionaries or arrays, or anything else
+    # Example of dictionary inside a dictionary
+
+# Loops with lists and dictionaries
+
+## Week 7. Making your own Functions
+* Defining a function
+* Passing arguments
+* Return values
+* Passing a list
+* Passing an arbitrary number of Arguments
+* Storing your functions in modules
+* Doc strings
+
+## Week 8. Classes
+* Creating and using a class
+* Working with classes and instances
+* Inheritance
+* Importing classes
+* The Python Standard Library
+
+
+

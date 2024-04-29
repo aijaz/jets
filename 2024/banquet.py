@@ -5,7 +5,9 @@ from intelino.trainlib.enums import SteeringDecision as S
 import time
 from req import sendlog, debug
 
+stop_requested = False
 pass_used_by = None
+num_stopped = 0
 
 JUNCTION_RIGHT = {"colors": (C.WHITE, C.MAGENTA), "direction": S.RIGHT}
 JUNCTION_LEFT = {"colors": (C.WHITE, C.GREEN), "direction": S.LEFT}
@@ -18,7 +20,7 @@ def random_speed():
 
 
 def handle_snap_commands(train, msg):
-    global pass_used_by
+    global pass_used_by, num_stopped
     sendlog(msg.colors)
     for j in JUNCTIONS:
         if msg.colors == j['colors']:
@@ -43,6 +45,12 @@ def handle_snap_commands(train, msg):
     if msg.colors == REVERSE:
         debug("REVERSE!")
         new_direction = M.FORWARD if train.direction == M.BACKWARD else M.BACKWARD
+        if stop_requested and new_direction == M.FORWARD:
+            debug("STOP!!!!")
+            train.stop_driving()
+            num_stopped += 1
+            return
+
         train.drive_at_speed(random_speed(), direction=new_direction)
         train.saved_direction = new_direction
         sendlog(f"{train.alias} is reversing direction")
@@ -70,7 +78,12 @@ for train in trains:
 
 _ = input("Press Enter to stop: ")
 
+stop_requested = True
+
+while num_stopped < 2:
+    debug(f"{num_stopped=}")
+    time.sleep(0.25)
+
 for train in trains:
     train.clear_custom_snap_commands()
-    train.stop_driving()
     train.disconnect()

@@ -2,6 +2,7 @@ from intelino.trainlib import TrainScanner
 from intelino.trainlib.enums import SnapColorValue as C
 from intelino.trainlib.enums import MovementDirection as M
 from intelino.trainlib.enums import SteeringDecision as S
+from intelino.trainlib.train_scanner import TrainNotFoundError
 import time
 from req import sendlog, debug
 
@@ -55,32 +56,37 @@ def handle_snap_commands(train, msg):
         train.saved_direction = new_direction
         sendlog(f"{train.alias} is reversing direction")
 
+trains = []
 
-trains = TrainScanner().get_trains(count=2)
+try:
+    trains = TrainScanner().get_trains(count=2)
 
-trains[0].alias = "Red Train"
-trains[0].set_top_led_color(255, 0, 0)
-trains[0].set_headlight_color(front=(255, 0, 0), back=(255, 0, 0))
-trains[1].alias = "Green Train"
-trains[1].set_top_led_color(0, 255, 0)
-trains[1].set_headlight_color(front=(0, 255, 0), back=(0, 255, 0))
+    trains[0].alias = "Red Train"
+    trains[0].set_top_led_color(255, 0, 0)
+    trains[0].set_headlight_color(front=(255, 0, 0), back=(255, 0, 0))
+    trains[1].alias = "Green Train"
+    trains[1].set_top_led_color(0, 255, 0)
+    trains[1].set_headlight_color(front=(0, 255, 0), back=(0, 255, 0))
 
-# setup event listener
-for train in trains:
-    train.clear_custom_snap_commands()
-    train.add_snap_command_detection_listener(handle_snap_commands)
-    # train.add_front_color_change_listener(handle_colors)
+    # setup event listener
+    for train in trains:
+        train.clear_custom_snap_commands()
+        train.add_snap_command_detection_listener(handle_snap_commands)
 
-for train in trains:
-    train.drive_at_speed(random_speed(), direction=M.FORWARD)
-    train.saved_direction = M.FORWARD
+    for train in trains:
+        train.drive_at_speed(random_speed(), direction=M.FORWARD)
+        train.saved_direction = M.FORWARD
 
+    _ = input("Press Enter to stop: ")
+except TrainNotFoundError as e:
+    print(e)
+except KeyboardInterrupt:
+    print("Cntr-C detected")
 
-_ = input("Press Enter to stop: ")
 
 stop_requested = True
 
-while num_stopped < 2:
+while num_stopped < len(trains):
     debug(f"{num_stopped=}")
     time.sleep(0.25)
 

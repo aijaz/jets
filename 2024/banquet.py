@@ -1,4 +1,4 @@
-from intelino.trainlib import TrainScanner, Train
+from intelino.trainlib import TrainScanner
 from intelino.trainlib.enums import SnapColorValue as C
 from intelino.trainlib.enums import MovementDirection as M
 from intelino.trainlib.enums import SteeringDecision as S

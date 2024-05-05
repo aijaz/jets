@@ -66,7 +66,7 @@ try:
     trains[0].set_top_led_color(255, 0, 0)
     trains[0].set_headlight_color(front=(255, 0, 0), back=(255, 0, 0))
     trains[1].alias = "Green Train"
-    trains[0].c = 'green'
+    trains[1].c = 'green'
     trains[1].set_top_led_color(0, 255, 0)
     trains[1].set_headlight_color(front=(0, 255, 0), back=(0, 255, 0))
 

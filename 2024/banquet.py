@@ -22,25 +22,25 @@ def random_speed():
 
 def handle_snap_commands(train, msg):
     global pass_used_by, num_stopped
-    sendlog(msg.colors)
+    # sendlog(msg.colors)
     for j in JUNCTIONS:
         if msg.colors == j['colors']:
             debug("MATCH!")
             train.set_next_split_steering_decision(j['direction'])
             if pass_used_by is None:
                 pass_used_by = train.alias
-                sendlog(f"{train.alias} about to enter shared track")
+                sendlog(f"<div class='log'>🟢 <span class='{train.c}'>{train.alias}</span> about to enter shared track</div>")
             elif pass_used_by == train.alias:
                 pass_used_by = None
-                sendlog(f"{train.alias} just exited shared track")
+                sendlog(f"<div class='log'>🎉 <span class='{train.c}'>{train.alias}</span> just exited shared track</div>")
             else:
-                sendlog(f"{train.alias} has to wait")
+                sendlog(f"<div class='log'>🔴 <span class='{train.c}'>{train.alias}</span> has to wait</div>")
                 train.stop_driving()
                 while pass_used_by is not None:
                     time.sleep(0.25)
                 pass_used_by = train.alias
                 train.drive_at_speed(random_speed(), direction=train.saved_direction)
-                sendlog(f"{train.alias} entered shared track after waiting")
+                sendlog(f"<div class='log'>🟢 <span class='{train.c}'>{train.alias}</span> entered shared track after waiting</div>")
 
             return
     if msg.colors == REVERSE:
@@ -54,7 +54,7 @@ def handle_snap_commands(train, msg):
 
         train.drive_at_speed(random_speed(), direction=new_direction)
         train.saved_direction = new_direction
-        sendlog(f"{train.alias} is reversing direction")
+        sendlog(f"↩ {train.alias} is reversing direction")
 
 trains = []
 
@@ -62,9 +62,11 @@ try:
     trains = TrainScanner().get_trains(count=2)
 
     trains[0].alias = "Red Train"
+    trains[0].c = 'red'
     trains[0].set_top_led_color(255, 0, 0)
     trains[0].set_headlight_color(front=(255, 0, 0), back=(255, 0, 0))
     trains[1].alias = "Green Train"
+    trains[0].c = 'green'
     trains[1].set_top_led_color(0, 255, 0)
     trains[1].set_headlight_color(front=(0, 255, 0), back=(0, 255, 0))
 
